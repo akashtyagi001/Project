@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="Project")
+@Entity
+@Table(name="Project")
 public class Project {
 
 

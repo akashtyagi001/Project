@@ -8,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="Config")
+@Entity
+@Table(name="Config")
 public class ProjectConfiguration {
 	@Id
 	@GeneratedValue

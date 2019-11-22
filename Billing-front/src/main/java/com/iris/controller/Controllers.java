@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.iris.daos.UserDao;
-import com.iris.models.EmployeeLogin;
+import com.iris.models.User;
 
 @Controller
 public class Controllers {
@@ -29,7 +29,7 @@ public class Controllers {
 	HttpServletRequest session;
 @RequestMapping(value="/getSignInForm",method=RequestMethod.POST)
 public String validateUser(@RequestParam int userId,@RequestParam String password) {
-	EmployeeLogin uObj=userDao.validateUser(userId,password);
+	User uObj=userDao.validateUser(userId,password);
 	if(uObj!=null){
 		session.setAttribute("uObj",uObj);
 		if(uObj.getEmployeeRole().equals("admin")) {

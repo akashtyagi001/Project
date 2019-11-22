@@ -35,7 +35,7 @@
 
     <div class="dropdown-menu">
 
-      <a class="dropdown-item" href="configure">Configure Project</a>
+      <a class="dropdown-item" href="Config">Configure Project</a>
 
       <a class="dropdown-item" href="#">Allocate Project</a>
 

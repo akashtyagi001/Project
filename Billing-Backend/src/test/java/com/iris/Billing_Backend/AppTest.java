@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.iris.config.DbConfig;
 import com.iris.daos.UserDao;
-import com.iris.models.EmployeeLogin;
+import com.iris.models.User;
 
 	public class AppTest{
 
@@ -26,7 +26,7 @@ import com.iris.models.EmployeeLogin;
 	
 		@Test
 		public void validateUserTest(){
-			EmployeeLogin r=userDaoObj.validateUser(101,"admin");
+			User r=userDaoObj.validateUser(101,"admin");
 			assertNotNull("Employee not found", r);
 		}
 		

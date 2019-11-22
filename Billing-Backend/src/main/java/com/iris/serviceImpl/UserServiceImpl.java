@@ -1,4 +1,4 @@
-package serviceImpl;
+package com.iris.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,9 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.UserDao;
 
-import com.iris.models.EmployeeLogin;
-
-import services.UserService;
+import com.iris.models.User;
+import com.iris.services.UserService;
 
 
 @Service("userService")
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
 	
 
-	public EmployeeLogin validateUser(int Id, String password) {
+	public User validateUser(int Id, String password) {
 
 		//some business logic...
 

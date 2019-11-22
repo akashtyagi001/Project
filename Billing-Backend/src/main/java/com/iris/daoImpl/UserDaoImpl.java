@@ -1,26 +1,27 @@
 package com.iris.daoImpl;
 
 import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.UserDao;
-import com.iris.models.EmployeeLogin;
-@Repository("userDao")
+import com.iris.models.User;
+@Component
+@Repository(value="userDao")
 @Transactional
 public class UserDaoImpl implements UserDao {
  
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public EmployeeLogin validateUser(int userId, String password) {
+	public User validateUser(int userId, String password) {
 		try {
 		Session session=sessionFactory.getCurrentSession();
-		EmployeeLogin EmplObj=session.get(EmployeeLogin.class,userId);
-		
-		
+		User EmplObj=session.get(User.class,userId);
 		if(EmplObj!=null){
 			if(EmplObj.getPassword().equals(password)){
 				return EmplObj;
