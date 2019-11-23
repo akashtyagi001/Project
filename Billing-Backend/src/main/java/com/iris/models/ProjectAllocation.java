@@ -7,9 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-//@Entity
-//@Table(name="Allocation")
+@Entity
+@Table(name="Allocation")
 public class ProjectAllocation {
 	@Id
 	@GeneratedValue
@@ -38,24 +37,5 @@ public class ProjectAllocation {
 	}
 	public void setConfigObj(Project configObj) {
 		ConfigObj = configObj;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	}	
 }

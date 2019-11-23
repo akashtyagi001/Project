@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.ProjectDao;
 import com.iris.models.Project;
+import com.iris.models.ProjectAllocation;
 import com.iris.models.ProjectConfiguration;
 @Component
 @Repository(value="projectDao")
@@ -19,6 +20,8 @@ import com.iris.models.ProjectConfiguration;
 public class ProjectDaoImpl implements ProjectDao{
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	
 	public List<Project> getAllProject() {
 		try {
 			Session session=sessionFactory.getCurrentSession();
@@ -94,6 +97,46 @@ public class ProjectDaoImpl implements ProjectDao{
   e.printStackTrace();
  }
 return false;
+	}
+	
+	
+	public ProjectConfiguration getProjectConfig(int id) {
+	try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			ProjectConfiguration p = session.get(ProjectConfiguration.class, id);
+			return p;
+		}
+		catch(Exception e)
+		{
+e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	public List<ProjectConfiguration> validateProject(int projectId, int roleId, String location) {
+		try {
+
+			Session session=sessionFactory.getCurrentSession();
+	Query q=session.createQuery("from com.get.ProjectConfiguration where ProjectId=:projectId and RoleId=:roleId and loc=:location");
+        q.setParameter("projectId",projectId);
+	   q.setParameter("roleId",roleId);
+           q.setParameter("location",location);
+             	return q.list();
+		}
+         catch(Exception e)
+            	{
+              	e.printStackTrace();
+
+		}
+
+		return null;
+
+	}
+	public List<ProjectAllocation> setProjectAllocation() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

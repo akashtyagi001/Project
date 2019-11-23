@@ -37,7 +37,7 @@
 
       <a class="dropdown-item" href="Config">Configure Project</a>
 
-      <a class="dropdown-item" href="#">Allocate Project</a>
+      <a class="dropdown-item" href="Allocateproject">Allocate Project</a>
 
       <a class="dropdown-item" href="#">View Report</a>
 

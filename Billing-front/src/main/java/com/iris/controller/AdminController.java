@@ -12,11 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iris.daos.EmployeeDao;
 import com.iris.daos.ProjectDao;
+import com.iris.models.Employee;
 import com.iris.models.Project;
+import com.iris.models.ProjectAllocation;
 import com.iris.models.ProjectConfiguration;
 import com.iris.models.Role;
 import com.iris.services.AdminService;
@@ -52,20 +55,54 @@ public class AdminController {
       
         return "Config";
 	}
-	
-
-
 	@RequestMapping(value= {"/Allocation"},method=RequestMethod.GET)
 
 	public String Allocation(ModelMap map) {
 
-	return "Allocation";
+		List<Project> projectList = adminService.getAllProject();
+       List<Role> rolesList = adminService.getAllRole();
+
+		List<Employee> Elist=adminService.getAllEmployee();
+
+		
+
+		map.addAttribute("dObj", Elist);
+
+		map.addAttribute("proj", projectList);
+
+		map.addAttribute("role",rolesList);
+
+		
+
+		return "Allocation";
 
 	}
 
+
+	@RequestMapping(value="/submitAllocate",method=RequestMethod.GET)
+
+	public String validateConfigr(@RequestParam int projectId,@RequestParam int roleId,@RequestParam String location,@RequestParam int employeeId){
+
+		System.out.println(projectId+""+roleId+""+location+""+employeeId);
+
+	List<ProjectConfiguration> Obj=projectDao.validateProject(projectId,roleId,location);
+
+	System.out.println(Obj);
+
+	System.out.println(employeeId);
+
 	
 
-	@RequestMapping(value= {"/submitConfig"},method=RequestMethod.GET)
+	//List<ProjectAllocation> Obj1=projectDao.setProjectAllocation(Obj.get(0),employeeId);	
+
+	
+
+		return "Allocation";
+
+	}
+	
+	
+	@RequestMapping(value= {"/ProjectConfig"},method=RequestMethod.GET)
 
 	public ModelAndView submitConfig(@ModelAttribute(name="pObj") @Valid ProjectConfiguration pObj1,BindingResult result,ModelMap map) {
 
@@ -118,8 +155,7 @@ public class AdminController {
 			return mv;
 
 		}
-
-		
-
 	}
-	}
+
+
+}

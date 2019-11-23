@@ -40,7 +40,7 @@
     		</core:if>	
 <h1>WELCOME TO CONFIGURE PAGE</h1>
 
- <f:form action="submitConfig" modelAttribute="pObj" method="get" id="projectform">
+ <f:form action="ProjectConfig" modelAttribute="pObj" method="get" id="projectform">
 
  			<label>Projects:</label>
 
