@@ -39,11 +39,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	public boolean setAttandance(Attandance obj) {
-		boolean E = EmployeeDaoObj.setAttandance(obj);
+		return EmployeeDaoObj.setAttandance(obj);
 
-		return E;
-
-		return ;
+		
 	}
 
 

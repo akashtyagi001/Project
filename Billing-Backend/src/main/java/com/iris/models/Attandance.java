@@ -8,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="Attandance")
+@Entity
+@Table(name="Attandance")
 public class Attandance {
 
 
@@ -31,6 +31,11 @@ public class Attandance {
 	@OneToOne
 	@JoinColumn(name="ProjectId")
 	Employee ProjObj;
+	@Override
+	public String toString() {
+		return "Attandance [attandanceId=" + attandanceId + ", month=" + month + ", year=" + year + ", fullDay="
+				+ fullDay + ", halfDay=" + halfDay + ", EmpObj=" + EmpObj + ", ProjObj=" + ProjObj + "]";
+	}
 	public int getAttandanceId() {
 		return attandanceId;
 	}

@@ -38,5 +38,5 @@ public class ProjectAllocation {
 	public void setConfigObj(ProjectConfiguration configObj) {
 		ConfigObj = configObj;
 	}
-	
+
 	}

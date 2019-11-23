@@ -118,7 +118,7 @@ public class AdminController {
 
 	}	
 	
-	@RequestMapping(value= {"/ProjectConfig"},method=RequestMethod.GET)
+	@RequestMapping(value= "/ProjectConfig",method=RequestMethod.GET)
 
 	public ModelAndView submitConfig(@ModelAttribute(name="pObj") @Valid ProjectConfiguration pObj1,BindingResult result,ModelMap map) {
 

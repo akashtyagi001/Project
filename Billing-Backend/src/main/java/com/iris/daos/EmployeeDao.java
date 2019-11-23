@@ -9,7 +9,7 @@ public interface EmployeeDao {
 	List<Employee> getAllEmployee();
 	public List <Employee> EmployeeAllocation(int empId);
 	public Employee getEmployeeById(int id);
-	public boolean setAttendance(Attandance obj);	
+	public boolean setAttandance(Attandance obj);	
 
 	public Attandance getBill(Integer id,String month,String year);
 }

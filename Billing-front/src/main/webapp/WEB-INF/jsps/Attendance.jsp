@@ -28,13 +28,13 @@
 
 		<div>
 
-		<label>Developer Name :</label>
+		<label>Employer Name :</label>
 
-		<f:select path="dvObj.empId" cssClass="form-control">
+		<f:select path="EmpObj.employeeId" cssClass="form-control">
 
  	 		<core:forEach items="${dObj}" var="dOb">
 
- 	 			<f:option value="${dOb.devId}">${dOb.name}</f:option>
+ 	 			<f:option value="${dOb.employeeId}">${dOb.employeeName}</f:option>
 
 	 		</core:forEach>
 
