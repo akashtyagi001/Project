@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.EmployeeDao;
+import com.iris.models.Attandance;
 import com.iris.models.Employee;
 
 @Component
@@ -40,4 +41,128 @@ public class EmployeeDaoImpl implements EmployeeDao{
 				}
 				return null;
 			}
+	     public List<Employee> EmployeeAllocation(int empId) {
+
+	 		try {
+              Session session=sessionFactory.getCurrentSession();
+               Query q=session.createQuery("from com.get.model.Employee where EmployeeId=:empId");
+                 q.setParameter("empId",empId);
+              return q.list();
+               }
+                     catch(Exception e)
+	 		{
+	 			e.printStackTrace();
+
+	 		}
+
+	 		return null;
+	 	}
+
+		public Employee getEmployeeById(int id) {
+			try {
+
+				Session session=sessionFactory.getCurrentSession();
+
+				Employee d=session.get(Employee.class,id);
+
+				 return d;
+
+				 
+
+				
+
+			}
+
+			catch(Exception e)
+
+			{
+
+				e.printStackTrace();
+
+			}
+
+			return null;
+
 		}
+/*public boolean setAttandance(Attandance obj) {
+
+	try
+
+	{
+
+		Session session=sessionFactory.getCurrentSession();
+
+		session.save(obj);
+
+		return true;
+
+	}
+
+	catch(Exception e)
+
+	{
+
+		e.printStackTrace();
+
+	}
+
+	return false;
+
+}
+
+public Attandance getBill(Integer id, String month, String year) {
+
+	// TODO Auto-generated method stub
+
+	return null;*/
+		public boolean setAttandance(Attandance obj) {
+			try
+
+			{
+
+				Session session=sessionFactory.getCurrentSession();
+
+				session.save(obj);
+
+				return true;
+
+			}
+
+			catch(Exception e)
+
+			{
+
+				e.printStackTrace();
+
+			}
+
+			return false;
+
+		}
+
+		public Attandance getBill(Integer id, String month, String year) {
+			
+			return null;
+		}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -115,11 +115,14 @@ e.printStackTrace();
 	}
 	
 	
+	
+	
+	
 	public List<ProjectConfiguration> validateProject(int projectId, int roleId, String location) {
 		try {
 
 			Session session=sessionFactory.getCurrentSession();
-	Query q=session.createQuery("from com.get.ProjectConfiguration where ProjectId=:projectId and RoleId=:roleId and loc=:location");
+	Query q=session.createQuery("from com.iris.models.ProjectConfiguration where ProjObj.projectId=:projectId and RoleObj.roleId=:roleId and loc=:location");
         q.setParameter("projectId",projectId);
 	   q.setParameter("roleId",roleId);
            q.setParameter("location",location);
@@ -134,10 +137,26 @@ e.printStackTrace();
 		return null;
 
 	}
-	public List<ProjectAllocation> setProjectAllocation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public boolean setProjectAllocation(ProjectAllocation projectAllocation) {
+		try {
+
+			Session session=sessionFactory.getCurrentSession();
+
+			session.save(projectAllocation);
+
+			return true;
+
+			}
+
+			catch(Exception e) {
+
+				e.printStackTrace();
+
+			}
+
+			return false;
+
+		}
 
 
 }

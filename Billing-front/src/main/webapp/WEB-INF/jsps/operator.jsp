@@ -36,10 +36,6 @@
     <div class="dropdown-menu">
 
       <a class="dropdown-item" href="Attendance">Attendance</a>
-
-      <a class="dropdown-item" href="Allocateproject">Allocate Project</a>
-
-
     </div>
 
   </div>

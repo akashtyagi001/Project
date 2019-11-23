@@ -61,17 +61,10 @@ public class AdminController {
 
 		List<Project> projectList = adminService.getAllProject();
        List<Role> rolesList = adminService.getAllRole();
-
 		List<Employee> Elist=adminService.getAllEmployee();
-
-		
-
-		map.addAttribute("dObj", Elist);
-
-		map.addAttribute("proj", projectList);
-
-		map.addAttribute("role",rolesList);
-
+	map.addAttribute("dObj", Elist);
+	map.addAttribute("proj", projectList);
+	map.addAttribute("role",rolesList);
 		
 
 		return "Allocation";
@@ -81,26 +74,49 @@ public class AdminController {
 
 	@RequestMapping(value="/submitAllocate",method=RequestMethod.GET)
 
-	public String validateConfigr(@RequestParam int projectId,@RequestParam int roleId,@RequestParam String location,@RequestParam int employeeId){
+	public String validateConfigr(@RequestParam int projectId,@RequestParam int roleId,@RequestParam String location,@RequestParam int employeeId,ModelMap map){
 
 		System.out.println(projectId+""+roleId+""+location+""+employeeId);
 
+		List<Project> projectList = adminService.getAllProject();
+	       List<Role> rolesList = adminService.getAllRole();
+			List<Employee> Elist=adminService.getAllEmployee();
+		map.addAttribute("dObj", Elist);
+		map.addAttribute("proj", projectList);
+		map.addAttribute("role",rolesList);
+	
 	List<ProjectConfiguration> Obj=projectDao.validateProject(projectId,roleId,location);
 
-	System.out.println(Obj);
 
-	System.out.println(employeeId);
 
-	
+	ProjectConfiguration confObj=Obj.get(0);
 
-	//List<ProjectAllocation> Obj1=projectDao.setProjectAllocation(Obj.get(0),employeeId);	
+	Employee EmpObj=employeeDao.getEmployeeById(employeeId);
+       ProjectAllocation ab=new ProjectAllocation();
+        ab.setEmplObj(EmpObj);
+         ab.setConfigObj(confObj);
+	boolean saved=projectDao.setProjectAllocation(ab);
 
-	
+	if(saved) {
+
+		map.addAttribute("msg","Allocation done");
 
 		return "Allocation";
+	
 
 	}
-	
+
+	else {
+
+		map.addAttribute("msg","Allocation error");
+
+	return "Allocation";
+
+	}
+
+
+
+	}	
 	
 	@RequestMapping(value= {"/ProjectConfig"},method=RequestMethod.GET)
 

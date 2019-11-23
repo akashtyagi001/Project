@@ -20,7 +20,30 @@
 
 <body>
 
-<form action="Allocation"  method="get">
+
+<%--<hr/>
+
+		<div align="center">
+
+		<h1 style="text-align: center;font-family: verdana;color:#000080">Allocate Here! </h1>
+
+		
+
+		<core:if test="${not empty msg}">
+
+		<div style="text-align: center;font-family: verdana;color:#000080" class="alert alert-success">${msg}
+
+		</div>
+
+		</core:if>
+
+		
+
+		
+
+		<hr/>
+--%>
+<form action="submitAllocate"  method="get">
 
 				<label>Projects:</label>
 
@@ -28,7 +51,7 @@
 
 			 	 <core:forEach items="${proj}" var="pOb">
 
-					<option value="${pOb.proID}">${pOb.name}</option>
+					<option value="${pOb.projectId}">${pOb.projectName}</option>
 
 				 </core:forEach>
 
@@ -42,13 +65,19 @@
 
 				 	 <core:forEach items="${role}" var="rOb">
 
-						<option value="${rOb.roleID}">${rOb.roleName} </option>
+						<option value="${rOb.roleId}">${rOb.roleName} </option>
 
 					 </core:forEach>
 
 				</select><br>
 
 			</div>
+			
+			
+
+			
+			
+			
 
  		<label>Location:</label>
 
@@ -58,21 +87,27 @@
 
 					 <input type="radio" name="location" value="Onsite" checked> Onsite<br>
 
-  <input type="radio" name="location" value="Offshore"> Offshore<br>
+ 					 <input type="radio" name="location" value="Offshore"> Offshore<br>
 
-	</div>
+					
+
+					
+
+					
+
+				</div>
 
 			</div>	
 
-			<label>Role:</label>
+			<label>Employee:</label>
 
-			<select name="devId">
+			<select name="employeeId">
 
 			  
 
-				 	 <core:forEach items="${dObj}" var="rOb">
+				 	 <core:forEach items="${dObj}" var="EOb">
 
-						<option value="${rOb.devId}">${rOb.name} </option>
+						<option value="${EOb.employeeId}">${EOb.employeeName} </option>
 
 					 </core:forEach>
 

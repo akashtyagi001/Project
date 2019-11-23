@@ -12,6 +12,6 @@ public interface AdminService {
   List<Role> getAllRole();
   List<Employee> getAllEmployee();
   List<ProjectConfiguration> getAllProjectConfig();
-  public Project getProjectById(int pId);
-  public boolean setProjectConfig(ProjectConfiguration pObj1);
+  Project getProjectById(int pId);
+  boolean setProjectConfig(ProjectConfiguration pObj1);
 }

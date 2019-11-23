@@ -12,6 +12,5 @@ public interface ProjectDao {
 	public Project getProjectById(int pId);
      public boolean setProjectConfig(ProjectConfiguration pObj1);
      public List<ProjectConfiguration> validateProject(int projectId,int roleId,String location) ;
- 	  public List<ProjectAllocation> setProjectAllocation();
-
+     public boolean setProjectAllocation(ProjectAllocation projectAllocation);
 }

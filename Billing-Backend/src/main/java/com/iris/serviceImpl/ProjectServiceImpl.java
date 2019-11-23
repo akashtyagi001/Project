@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.ProjectDao;
 import com.iris.models.Project;
+import com.iris.models.ProjectAllocation;
 import com.iris.models.ProjectConfiguration;
 import com.iris.services.ProjectService;
 @Component
@@ -29,6 +30,31 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<ProjectConfiguration> getAllProjectConfig() {
 	
 		return projectDaoObj.getAllProjectConfig();
+	}
+
+
+	public Project getProjectById(int pId) {
+		return projectDaoObj.getProjectById(pId);
+	}
+
+
+	public boolean setProjectConfig(ProjectConfiguration pObj1) {
+		boolean save = projectDaoObj.setProjectConfig(pObj1);
+
+		return save;
+	}
+
+
+	public List<ProjectConfiguration> validateProject(int projectId, int roleId, String location) {
+
+		return projectDaoObj.validateProject(projectId,roleId,location);
+	}
+
+
+	public boolean setProjectAllocation(ProjectAllocation projectAllocation) {
+		boolean s = projectDaoObj.setProjectAllocation(projectAllocation);
+
+		return s;
 	}
 
 

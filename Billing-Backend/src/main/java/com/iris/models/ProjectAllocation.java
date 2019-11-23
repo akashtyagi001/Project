@@ -19,7 +19,7 @@ public class ProjectAllocation {
 	Employee EmplObj;
 	@OneToOne
 	@JoinColumn(name="ConfigId")
-	Project ConfigObj;
+	ProjectConfiguration ConfigObj;
 	public int getAllocId() {
 		return allocId;
 	}
@@ -32,10 +32,11 @@ public class ProjectAllocation {
 	public void setEmplObj(Employee emplObj) {
 		EmplObj = emplObj;
 	}
-	public Project getConfigObj() {
+	public ProjectConfiguration getConfigObj() {
 		return ConfigObj;
 	}
-	public void setConfigObj(Project configObj) {
+	public void setConfigObj(ProjectConfiguration configObj) {
 		ConfigObj = configObj;
-	}	
-}
+	}
+	
+	}

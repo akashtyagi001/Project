@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.EmployeeDao;
+import com.iris.models.Attandance;
 import com.iris.models.Employee;
 import com.iris.services.EmployeeService;
 
@@ -24,6 +25,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getAllEmployee() {
 		
 		return EmployeeDaoObj.getAllEmployee();
+	}
+
+
+	public List<Employee> EmployeeAllocation(int empId) {
+		return EmployeeDaoObj.EmployeeAllocation(empId) ;
+	}
+
+
+	public Employee getEmployeeById(int id) {
+		return EmployeeDaoObj.getEmployeeById(id);
+	}
+
+
+	public boolean setAttandance(Attandance obj) {
+		boolean E = EmployeeDaoObj.setAttandance(obj);
+
+		return E;
+
+		return ;
+	}
+
+
+	public Attandance getBill(Integer id, String month, String year) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
