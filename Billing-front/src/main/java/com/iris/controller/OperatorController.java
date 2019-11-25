@@ -16,53 +16,54 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iris.daos.EmployeeDao;
 import com.iris.daos.ProjectDao;
-import com.iris.models.Attandance;
+import com.iris.models.Operator;
 import com.iris.models.Employee;
 import com.iris.models.Project;
+import com.iris.models.Role;
+import com.iris.models.ProjectConfiguration;
 import com.iris.services.OperatorService;
+import com.iris.services.AdminService;
+
+
 @Controller
 public class OperatorController {
 
 	@Autowired
-
 	private OperatorService operatorService;	
 
 	@Autowired
-
 	private EmployeeDao employeeDao;
 
 
 	@Autowired
-
 	private ProjectDao projectDao;
 	
 
 	@Autowired
+    HttpSession session;
 
-	HttpSession session;
-
-	@RequestMapping(value= "/Attandance",method=RequestMethod.GET)
-	public String Allocation(ModelMap map) {
+	@RequestMapping(value= "/Attendance",method=RequestMethod.GET)
+	public String Attandance(ModelMap map) {
 
 		List<Employee> Dlist=operatorService.getAllEmployee();
+	
         List<Project> projectList = operatorService.getAllProject();
-
-		Attandance dataObj=new Attandance();
-
+   
+		Operator dataObj=new Operator();
+		 
 		map.addAttribute("dataObj", dataObj);
-
+		 
 		map.addAttribute("proj", projectList);
-
+		 
 		map.addAttribute("dObj", Dlist);
-		return "Attandance";
+		return "Attendance";
 
 	}
 	
 	@RequestMapping(value= {"/submitAttendance"},method=RequestMethod.GET)
-	public ModelAndView submitAttendance(@Valid @ModelAttribute(name="dataObj")  Attandance dataObj,BindingResult result,ModelMap map) {
-
-		
-
+	
+	public ModelAndView submitAttendance(@Valid @ModelAttribute(name="dataObj")  Operator dataObj,BindingResult result,ModelMap map) {
+	
 		try {
 
 			boolean saved = operatorService.setAttandance(dataObj);

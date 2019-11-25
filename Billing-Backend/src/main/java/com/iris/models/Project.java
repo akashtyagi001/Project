@@ -39,6 +39,12 @@ public class Project {
 		this.projectName = projectName;
 	}
 
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", active=" + active
+				+ ", description=" + description + "]";
+	}
+
 	public String getActive() {
 		return active;
 	}

@@ -7,18 +7,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iris.models.Attandance;
+import com.iris.models.Operator;
 import com.iris.models.Employee;
 import com.iris.models.Project;
 import com.iris.daos.EmployeeDao;
 import com.iris.daos.ProjectDao;
 import com.iris.daos.RoleDao;
-
+import com.iris.services.OperatorService;
 
 @Component
 @Service("operatorService")
 @Transactional
-public class OperatorServiceImpl {
+public class OperatorServiceImpl implements OperatorService{
 
 
 @Autowired 
@@ -40,10 +40,9 @@ public List<Employee> getAllEmployee() {
 
 
 
-public boolean setAttendance(Attandance dataObj) {
+public boolean setAttandance(Operator dataObj) {
 
-	return false;
-
+	return employeeDao.setAttandance(dataObj);
 }
 
 

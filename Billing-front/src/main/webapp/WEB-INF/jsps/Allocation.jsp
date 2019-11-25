@@ -12,14 +12,21 @@
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <title>Allocation </title>
 
 </head>
 
 <body>
-
+<div class="jumbotron">
+  <h1>ABC COMPANY</h1>
+  <h3 align="center">ALLOCATION PAGE</h3>
+  </div>
 
 <%--<hr/>
 
@@ -47,7 +54,7 @@
 
 				<label>Projects:</label>
 
-			<select name="projectId">
+			<select name="projectId" class="form-control">
 
 			 	 <core:forEach items="${proj}" var="pOb">
 
@@ -61,7 +68,7 @@
 
 			<label>Role:</label>
 
-				<select name="roleId">
+				<select name="roleId" class="form-control">
 
 				 	 <core:forEach items="${role}" var="rOb">
 
@@ -83,7 +90,7 @@
 
 			<div>
 
-				<div class="custom-control custom-radio">	
+				<div class="custom-control custom-radio" class="form-control">	
 
 					 <input type="radio" name="location" value="Onsite" checked> Onsite<br>
 
@@ -101,7 +108,7 @@
 
 			<label>Employee:</label>
 
-			<select name="employeeId">
+			<select name="employeeId" class="form-control">
 
 			  
 
@@ -117,13 +124,27 @@
 
 			</div>
 
-				<div class="form-group">
+				<div class="form-group" class="form-control">
 
 				    <button type="submit" class="btn btn-primary">Submit</button>
 
 				 </div>
 
 			</form>
+			<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D49292;
+   color: white;
+   text-align: center;
+}
+</style>
+<div class="footer">
+  <p>© 2019 Copyright:ABC COMPANY</p>
+</div>
 
 </body>
 

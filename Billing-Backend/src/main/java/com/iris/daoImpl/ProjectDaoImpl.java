@@ -157,6 +157,77 @@ e.printStackTrace();
 			return false;
 
 		}
+	public boolean checkProjectConfiguration(ProjectConfiguration obj) {
+		try {
+	Session session=sessionFactory.getCurrentSession();
+Query q=session.createQuery("from com.iris.models.ProjectConfiguration where projectId=:projectId and roleId=:roleId and loc=:location");
+	q.setParameter("projectId",obj.getProjObj());
+	q.setParameter("roleId",obj.getRoleObj());
+	q.setParameter("location",obj.getLocation());
 
+			if(q.list().size()==0) {
+
+				session.save(obj);
+
+				return true;
+
+			}
+
+			
+
+		}
+
+			catch(Exception e)
+
+
+
+			{
+
+
+
+				e.printStackTrace();
+
+
+
+			}
+
+		return false;
+
+	}
+
+	
+	public List<ProjectConfiguration> getAllProjectConfigNotAllocated() {
+		try {
+       Session session=sessionFactory.getCurrentSession(); 
+        Query q=session.createQuery("from ProjectConfiguration where configurationId not in(select ConfigObj.configurationId from ProjectAllocation)");
+         return q.list();
+		}
+            catch(Exception e)
+		{
+         e.printStackTrace();
+              }
+           return null;
+}
+	
+	
+	
+	public List<ProjectConfiguration> getAllProjectConfiguration(int projectId) {
+		try {
+          	Session session=sessionFactory.getCurrentSession();
+          	Query q=session.createQuery("from com.iris.models.ProjectConfiguration where ProjObj.projectId=:projectId");
+             q.setParameter("projectId",projectId);
+
+                 	return q.list();
+                       
+		}
+
+           catch(Exception e)
+
+		{
+	e.printStackTrace();
+
+		}
+		return null;
+	}
 
 }

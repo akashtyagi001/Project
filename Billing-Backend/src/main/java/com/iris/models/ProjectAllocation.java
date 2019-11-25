@@ -38,5 +38,8 @@ public class ProjectAllocation {
 	public void setConfigObj(ProjectConfiguration configObj) {
 		ConfigObj = configObj;
 	}
-
+	@Override
+	public String toString() {
+		return "ProjectAllocation [allocId=" + allocId + ", EmplObj=" + EmplObj + ", ConfigObj=" + ConfigObj + "]";
 	}
+}

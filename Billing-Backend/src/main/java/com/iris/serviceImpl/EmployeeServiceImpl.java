@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.EmployeeDao;
-import com.iris.models.Attandance;
+import com.iris.models.Operator;
 import com.iris.models.Employee;
 import com.iris.services.EmployeeService;
 
@@ -38,14 +38,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 
-	public boolean setAttandance(Attandance obj) {
+	public boolean setAttandance(Operator obj) {
 		return EmployeeDaoObj.setAttandance(obj);
 
 		
 	}
 
 
-	public Attandance getBill(Integer id, String month, String year) {
+	public Operator getBill(Integer id, String month, String year) {
 		// TODO Auto-generated method stub
 		return null;
 	}

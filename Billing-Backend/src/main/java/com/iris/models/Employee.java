@@ -18,6 +18,12 @@ public class Employee {
 	private String employeeName;
 
 
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + "]";
+	}
+
+
 	public int getEmployeeId() {
 		return employeeId;
 	}

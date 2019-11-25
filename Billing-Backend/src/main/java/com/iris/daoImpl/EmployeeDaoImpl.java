@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.EmployeeDao;
-import com.iris.models.Attandance;
+import com.iris.models.Operator;
 import com.iris.models.Employee;
 
 @Component
@@ -115,7 +115,7 @@ public Attandance getBill(Integer id, String month, String year) {
 	// TODO Auto-generated method stub
 
 	return null;*/
-		public boolean setAttandance(Attandance obj) {
+		public boolean setAttandance(Operator obj) {
 			try
 
 			{
@@ -140,7 +140,7 @@ public Attandance getBill(Integer id, String month, String year) {
 
 		}
 
-		public Attandance getBill(Integer id, String month, String year) {
+		public Operator getBill(Integer id, String month, String year) {
 			
 			return null;
 		}

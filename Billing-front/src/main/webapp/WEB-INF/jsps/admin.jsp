@@ -3,9 +3,7 @@
 		<title>Adminpage</title>
 	</head>
 	<body>
-		<h1 style="text-align: center;font-family: verdana;color: green">
-	     ADMIN PAGE
-		</h1>
+		
 		
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -16,7 +14,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+ <div class="jumbotron">
+  <h1>ABC COMPANY</h1>
+  <h3 align="center" >ADMIN PAGE</h3>
+  </div>
 <div align="center">
 
 		<h1 style="background-color:lightblue;color:darkblue">Welcome Admin! </h1><hr/>
@@ -44,5 +45,20 @@
     </div>
 
   </div>
+  
+  <style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D49292;
+   color: white;
+   text-align: center;
+}
+</style>
+<div class="footer">
+  <p>© 2019 Copyright:ABC COMPANY</p>
+</div>
 	</body>
 </html>
